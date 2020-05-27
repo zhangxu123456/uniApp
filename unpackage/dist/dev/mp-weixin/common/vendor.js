@@ -245,16 +245,12 @@ var SYNC_API_RE =
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
-// Context例外情况
-var CONTEXT_API_RE_EXC = ['createBLEConnection'];
-
-// 同步例外情况
 var ASYNC_API = ['createBLEConnection'];
 
 var CALLBACK_API_RE = /^on|^off/;
 
 function isContextApi(name) {
-  return CONTEXT_API_RE.test(name) && CONTEXT_API_RE_EXC.indexOf(name) === -1;
+  return CONTEXT_API_RE.test(name);
 }
 function isSyncApi(name) {
   return SYNC_API_RE.test(name) && ASYNC_API.indexOf(name) === -1;
@@ -358,12 +354,14 @@ var interceptors = {
   promiseInterceptor: promiseInterceptor };
 
 
+
+
 var baseApi = /*#__PURE__*/Object.freeze({
   __proto__: null,
   upx2px: upx2px,
+  interceptors: interceptors,
   addInterceptor: addInterceptor,
-  removeInterceptor: removeInterceptor,
-  interceptors: interceptors });
+  removeInterceptor: removeInterceptor });
 
 
 var previewImage = {
@@ -606,6 +604,8 @@ var eventApi = /*#__PURE__*/Object.freeze({
   $emit: $emit });
 
 
+
+
 var api = /*#__PURE__*/Object.freeze({
   __proto__: null });
 
@@ -792,14 +792,14 @@ function createObserver(name) {
 }
 
 function initBehaviors(vueOptions, initBehavior) {
-  var vueBehaviors = vueOptions.behaviors;
-  var vueExtends = vueOptions.extends;
-  var vueMixins = vueOptions.mixins;
+  var vueBehaviors = vueOptions['behaviors'];
+  var vueExtends = vueOptions['extends'];
+  var vueMixins = vueOptions['mixins'];
 
-  var vueProps = vueOptions.props;
+  var vueProps = vueOptions['props'];
 
   if (!vueProps) {
-    vueOptions.props = vueProps = [];
+    vueOptions['props'] = vueProps = [];
   }
 
   var behaviors = [];
@@ -811,11 +811,11 @@ function initBehaviors(vueOptions, initBehavior) {
           vueProps.push('name');
           vueProps.push('value');
         } else {
-          vueProps.name = {
+          vueProps['name'] = {
             type: String,
             default: '' };
 
-          vueProps.value = {
+          vueProps['value'] = {
             type: [String, Number, Boolean, Array, Object, Date],
             default: '' };
 
@@ -884,7 +884,7 @@ function initProperties(props) {var isBehavior = arguments.length > 1 && argumen
     Object.keys(props).forEach(function (key) {
       var opts = props[key];
       if (isPlainObject(opts)) {// title:{type:String,default:''}
-        var value = opts.default;
+        var value = opts['default'];
         if (isFn(value)) {
           value = value();
         }
@@ -921,11 +921,6 @@ function wrapper$1(event) {
 
   if (!hasOwn(event, 'detail')) {
     event.detail = {};
-  }
-
-  if (hasOwn(event, 'markerId')) {
-    event.detail = typeof event.detail === 'object' ? event.detail : {};
-    event.detail.markerId = event.markerId;
   }
 
   if (isPlainObject(event.detail)) {
@@ -1080,11 +1075,11 @@ function handleEvent(event) {var _this = this;
   // [['tap',[['handle',[1,2,a]],['handle1',[1,2,a]]]]]
   var dataset = (event.currentTarget || event.target).dataset;
   if (!dataset) {
-    return console.warn('事件信息不存在');
+    return console.warn("\u4E8B\u4EF6\u4FE1\u606F\u4E0D\u5B58\u5728");
   }
   var eventOpts = dataset.eventOpts || dataset['event-opts']; // 支付宝 web-view 组件 dataset 非驼峰
   if (!eventOpts) {
-    return console.warn('事件信息不存在');
+    return console.warn("\u4E8B\u4EF6\u4FE1\u606F\u4E0D\u5B58\u5728");
   }
 
   // [['handle',[1,2,a]],['handle1',[1,2,a]]]
@@ -1343,8 +1338,8 @@ function parseBaseComponent(vueComponentOptions)
 
   {
     // 微信 multipleSlots 部分情况有 bug，导致内容顺序错乱 如 u-list，提供覆盖选项
-    if (vueOptions['mp-weixin'] && vueOptions['mp-weixin'].options) {
-      Object.assign(options, vueOptions['mp-weixin'].options);
+    if (vueOptions['mp-weixin'] && vueOptions['mp-weixin']['options']) {
+      Object.assign(options, vueOptions['mp-weixin']['options']);
     }
   }
 
@@ -6530,10 +6525,10 @@ function initMixin (Vue) {
     initEvents(vm);
     initRender(vm);
     callHook(vm, 'beforeCreate');
-    !vm._$fallback && initInjections(vm); // resolve injections before data/props  
+    vm.mpHost !== 'mp-toutiao' && initInjections(vm); // resolve injections before data/props  
     initState(vm);
-    !vm._$fallback && initProvide(vm); // resolve provide after data/props
-    !vm._$fallback && callHook(vm, 'created');      
+    vm.mpHost !== 'mp-toutiao' && initProvide(vm); // resolve provide after data/props
+    vm.mpHost !== 'mp-toutiao' && callHook(vm, 'created');      
 
     /* istanbul ignore if */
     if ( true && config.performance && mark) {
@@ -7249,7 +7244,7 @@ function mountComponent$1(
     }
   }
   
-  !vm._$fallback && callHook(vm, 'beforeMount');
+  vm.mpHost !== 'mp-toutiao' && callHook(vm, 'beforeMount');
 
   var updateComponent = function () {
     vm._update(vm._render(), hydrating);
@@ -7619,9 +7614,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!************************************!*\
-  !*** F:/kuangjia/yuedu/pages.json ***!
-  \************************************/
+/*!*************************************!*\
+  !*** F:/kuangjia/uniApp/pages.json ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -7762,9 +7757,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!*********************************!*\
-  !*** F:/kuangjia/yuedu/Json.js ***!
-  \*********************************/
+/*!**********************************!*\
+  !*** F:/kuangjia/uniApp/Json.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

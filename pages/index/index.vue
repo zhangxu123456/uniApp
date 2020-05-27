@@ -36,11 +36,25 @@
 			</view>
 		</view>
 		<view class="page-notice">
-			<text class="newNotice">最新上架</text>
+			<text class="newNotice" @click="navToDetailPage()">最新上架</text>
 			<text class="newtext">每周上架一款我亲测试用过的产品</text>
 		</view>
 		<view class="page-newgoods">
 			<image src="/static/temp/ad3.jpg"></image>
+		</view>
+		<view class="page-hots">
+			<view class="hots-wrap" v-for="(item, key) in guessList" :key=key>
+				<view class="image-wrap">
+					<image src="/static/temp/h1.png" mode="" class="hots-tips"></image>
+					<image :src="item.src" mode="" class="hots-cate"></image>
+				</view>
+				<view class="text-wrap">
+					<text class="goods-name">2020周边2020周边2020周边2020周边2020周边2020周边2020周边</text>
+					<text class="goods-price">¥99</text>
+				</view>
+				<view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -49,15 +63,22 @@
 	export default {
 		data() {
 			return {
-				carouselList: ''
+				carouselList: '',
+				guessList: ''
 			}
 		},
 		onLoad() {
 			this.carouselList = this.$api.carouselList
-			console.log(this.$api)
+			this.guessList = this.$api.detailData.guessList
+			console.log(this.guessList)
 		},
 		methods: {
-
+			navToDetailPage(){
+				console.log(321)
+				uni.navigateTo({
+					url:'/pages/product/product'
+				})
+			}
 		}
 	}
 </script>
@@ -117,6 +138,23 @@
 	.page-newgoods{
 		image{width: 100%;}
 	}
-	
+	.page-hots{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.hots-wrap{width: 240upx;
+			.image-wrap{position: relative;width: 240upx;
+				.hots-tips{ width: 60upx;height: 60upx;position: absolute;top: -15rpx;}
+				.hots-cate{width: 240upx;height: 240upx;}
+			}
+			.text-wrap{
+				display: inline-flex;
+				flex-direction: column;
+				}
+			.goods-name {font-size: 24rpx;}
+			.goods-price {font-size: 28rpx; color:red}
+		}
+	}
 }
 </style>

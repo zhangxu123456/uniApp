@@ -29,34 +29,34 @@
   height: 350rpx;
 }
 .indexContent .page-swiper .carousel .carousel-item {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .indexContent .page-swiper .carousel .carousel-item image {
-  width: 100%;
-  height: 100%;
+      width: 100%;
+      height: 100%;
 }
 .indexContent .page-select {
   padding: 10rpx;
   background: #999;
 }
 .indexContent .page-select .search-box {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
 }
 .indexContent .page-select .ser-input {
-  width: 100%;
-  height: 56rpx;
-  line-height: 56rpx;
-  text-align: center;
-  font-size: 28rpx;
-  color: #007aff;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #007aff;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.6);
 }
 .indexContent .cate-section {
   display: -webkit-box;
@@ -72,27 +72,26 @@
   padding: 30rpx 22rpx;
 }
 .indexContent .cate-section .cate-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  font-size: 26rpx;
-  color: #303133;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    font-size: 26rpx;
+    color: #303133;
 }
 .indexContent .cate-section image {
-  width: 88rpx;
-  height: 88rpx;
-  margin-bottom: 14rpx;
-  border-radius: 50%;
-  opacity: .7;
-  -webkit-box-shadow: 4rpx 4rpx 20rpx rgba(250, 67, 106, 0.3);
-          box-shadow: 4rpx 4rpx 20rpx rgba(250, 67, 106, 0.3);
+    width: 88rpx;
+    height: 88rpx;
+    margin-bottom: 14rpx;
+    border-radius: 50%;
+    opacity: .7;
+    box-shadow: 4rpx 4rpx 20rpx rgba(250, 67, 106, 0.3);
 }
 .indexContent .page-notice {
   display: -webkit-box;
@@ -107,12 +106,59 @@
           align-items: center;
 }
 .indexContent .page-notice .newNotice {
-  font-size: 30rpx;
+    font-size: 30rpx;
 }
 .indexContent .page-notice .newtext {
-  font-size: 24rpx;
+    font-size: 24rpx;
 }
 .indexContent .page-newgoods image {
   width: 100%;
+}
+.indexContent .page-hots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.indexContent .page-hots .hots-wrap {
+    width: 240rpx;
+}
+.indexContent .page-hots .hots-wrap .image-wrap {
+      position: relative;
+      width: 240rpx;
+}
+.indexContent .page-hots .hots-wrap .image-wrap .hots-tips {
+        width: 60rpx;
+        height: 60rpx;
+        position: absolute;
+        top: -15rpx;
+}
+.indexContent .page-hots .hots-wrap .image-wrap .hots-cate {
+        width: 240rpx;
+        height: 240rpx;
+}
+.indexContent .page-hots .hots-wrap .text-wrap {
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+              flex-direction: column;
+}
+.indexContent .page-hots .hots-wrap .goods-name {
+      font-size: 24rpx;
+}
+.indexContent .page-hots .hots-wrap .goods-price {
+      font-size: 28rpx;
+      color: red;
 }
 
