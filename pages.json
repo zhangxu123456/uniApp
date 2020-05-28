@@ -26,6 +26,15 @@
 		    "style" : {}
 		}
     ],
+	"condition":{
+		"current": 0,
+		 "list": [
+			 {
+				 "path":"pages/product/product",
+				 "name": "test"
+			 }
+		 ]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "阅读",

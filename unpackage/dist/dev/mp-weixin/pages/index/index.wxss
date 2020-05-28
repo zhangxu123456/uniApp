@@ -24,6 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
 .indexContent .page-swiper .carousel {
   width: 100%;
   height: 350rpx;
@@ -54,7 +60,7 @@
     line-height: 56rpx;
     text-align: center;
     font-size: 28rpx;
-    color: #007aff;
+    color: #fa436a;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.6);
 }
